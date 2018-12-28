@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_forecast_app/forecast/background/background_with_rings.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,6 +24,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          BackgroundWithRings(),
+        ],
+      ),
+    );
   }
 }
