@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:weather_forecast_app/generic_widgets/spinner_text.dart';
 
 class ForecastAppBar extends StatelessWidget {
   final Function onDrawerArrowTap;
+  final String selectedDay;
 
   ForecastAppBar({
     this.onDrawerArrowTap,
+    this.selectedDay,
   });
 
   @override
@@ -16,12 +19,8 @@ class ForecastAppBar extends StatelessWidget {
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            'Friday, December 28',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16.0,
-            ),
+          SpinnerText(
+            text: selectedDay,
           ),
           Text(
             'New York City',
