@@ -3,10 +3,12 @@ import 'package:weather_forecast_app/forecast/background/background_with_rings.d
 import 'package:weather_forecast_app/forecast/radial_list.dart';
 
 class Forecast extends StatelessWidget {
-  RadialListViewModel radialList;
+  final RadialListViewModel radialList;
+  final SlidingRadialListController slidingListController;
 
   Forecast({
     @required this.radialList,
+    @required this.slidingListController,
   });
 
   Widget _temperatureText() {
@@ -34,8 +36,9 @@ class Forecast extends StatelessWidget {
       children: <Widget>[
         BackgroundWithRings(),
         _temperatureText(),
-        RadialList(
+        SlidingRadialList(
           radialList: radialList,
+          controller: slidingListController,
         ),
       ],
     );

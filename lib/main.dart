@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_forecast_app/forecast/app_bar.dart';
 import 'package:weather_forecast_app/forecast/forecast.dart';
 import 'package:weather_forecast_app/forecast/forecast_list.dart';
+import 'package:weather_forecast_app/forecast/radial_list.dart';
 import 'package:weather_forecast_app/forecast/week_drawer.dart';
 import 'package:weather_forecast_app/generic_widgets/sliding_drawer.dart';
 
@@ -27,17 +28,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   OpenableController openableController;
+  SlidingRadialListController slidingListController;
   String selectedDay = 'Tuesday, January 1';
 
   @override
   void initState() {
     super.initState();
+
     openableController = new OpenableController(
       vsync: this,
       openDuration: const Duration(milliseconds: 250),
     )..addListener(() => setState(() {}));
+
+    slidingListController = new SlidingRadialListController(
+      itemCount: forecastRadialList.items.length,
+      vsync: this,
+    )..open();
   }
 
   @override
@@ -47,6 +55,7 @@ class _MyHomePageState extends State<MyHomePage>
         children: <Widget>[
           Forecast(
             radialList: forecastRadialList,
+            slidingListController: slidingListController,
           ),
           Positioned(
             top: 0.0,
@@ -63,6 +72,9 @@ class _MyHomePageState extends State<MyHomePage>
                 setState(() {
                   selectedDay = title.replaceAll('\n', ', ');
                 });
+                slidingListController
+                    .close()
+                    .then((_) => slidingListController.open());
                 openableController.close();
               },
             ),
