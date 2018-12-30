@@ -27,8 +27,7 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage>
-    with TickerProviderStateMixin {
+class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   OpenableController openableController;
   SlidingRadialListController slidingListController;
   String selectedDay = 'Tuesday, January 1';

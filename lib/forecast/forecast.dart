@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_forecast_app/forecast/background/background_with_rings.dart';
+import 'package:weather_forecast_app/forecast/background/rain.dart';
 import 'package:weather_forecast_app/forecast/radial_list.dart';
 
 class Forecast extends StatelessWidget {
@@ -40,6 +41,7 @@ class Forecast extends StatelessWidget {
           radialList: radialList,
           controller: slidingListController,
         ),
+        Rain(),
       ],
     );
   }

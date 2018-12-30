@@ -80,7 +80,7 @@ class SlidingRadialListController extends ChangeNotifier {
   final List<Animation<double>> _slidePositions;
 
   RadialListState _state = RadialListState.closed;
-  Completer<Null>onOpenedCompleter;
+  Completer<Null> onOpenedCompleter;
   Completer<Null> onClosedCompleter;
 
   SlidingRadialListController({
