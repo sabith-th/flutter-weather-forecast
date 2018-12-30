@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_forecast_app/forecast/app_bar.dart';
-import 'package:weather_forecast_app/forecast/background/background_with_rings.dart';
+import 'package:weather_forecast_app/forecast/forecast.dart';
+import 'package:weather_forecast_app/forecast/forecast_list.dart';
 import 'package:weather_forecast_app/forecast/week_drawer.dart';
 import 'package:weather_forecast_app/generic_widgets/sliding_drawer.dart';
 
@@ -44,7 +45,9 @@ class _MyHomePageState extends State<MyHomePage>
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          BackgroundWithRings(),
+          Forecast(
+            radialList: forecastRadialList,
+          ),
           Positioned(
             top: 0.0,
             left: 0.0,
